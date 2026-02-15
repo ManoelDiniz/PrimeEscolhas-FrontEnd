@@ -9,6 +9,8 @@ export const ProductCard = (product: ProductDto) => {
   const oldPrice = Number(product.old_price);
   const hasDiscount = hasActiveDiscount(product);
   const finalPrice = hasDiscount && currentPrice ? currentPrice : oldPrice;
+  const backendUrl =
+    process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:3001";
 
   return (
     <div className="relative flex h-90 w-50 shrink-0 flex-col rounded-xl bg-white  shadow-2xl p-4 cursor-pointer hover:shadow-md transition-shadow duration-300">
@@ -23,7 +25,7 @@ export const ProductCard = (product: ProductDto) => {
       <div className="flex h-35 items-center justify-center">
         {product.image ? (
           <Image
-            src={`http://127.0.0.1:8000/storage/${product.image}`}
+            src={`${backendUrl}/storage/${product.image}`}
             alt={product.title}
             width={120}
             height={120}
