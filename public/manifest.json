@@ -1,0 +1,36 @@
+{
+  "name": "Prime Escolhas",
+  "short_name": "Prime",
+  "description": "Descubra as melhores ofertas e reviews antes de comprar.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/logo/logo-1024x1024.webp",
+      "sizes": "1024x1024",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo/logo-1024x1536.webp",
+      "sizes": "1024x1536",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+    "src": "/logo/logo540x720.webp",
+    "sizes": "1024x1536",
+    "type": "image/webp"
+  },
+     {
+      "src": "/logo/logo-1024x1024.webp",
+      "sizes": "1024x1024",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ]
+}
