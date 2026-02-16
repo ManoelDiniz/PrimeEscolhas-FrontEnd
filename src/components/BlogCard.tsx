@@ -24,11 +24,26 @@ export const BlogCard = ({
       viewBlogPost(title);
     }
   };
+
   return (
     <Link
       onClick={handleClick}
       href={slug ? `/blog/${slug}` : "#"}
-      className="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden cursor-pointer w-72 h-85.5 mb-2"
+      className="
+        w-full
+        sm:w-72
+        bg-white
+        rounded-2xl
+        shadow-md
+        hover:shadow-xl
+        transition
+        duration-300
+        overflow-hidden
+        cursor-pointer
+        flex
+        flex-col
+        mb-2
+      "
     >
       {/* IMAGEM */}
       <div className="relative w-full aspect-video">
@@ -42,8 +57,8 @@ export const BlogCard = ({
       </div>
 
       {/* CONTEÚDO */}
-      <div className="p-6 flex flex-col h-full">
-        <h2 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
+      <div className="p-5 flex flex-col flex-1">
+        <h2 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
           {title}
         </h2>
 

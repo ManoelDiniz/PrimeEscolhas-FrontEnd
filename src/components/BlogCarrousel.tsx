@@ -7,7 +7,6 @@ import { BlogCard } from "./BlogCard";
 
 interface BlogCarouselProps {
   blogsPosts: BlogDto[];
-  blog_length?: (blog_length: number) => void;
 }
 
 export function BlogCarousel({ blogsPosts }: BlogCarouselProps) {
@@ -18,7 +17,7 @@ export function BlogCarousel({ blogsPosts }: BlogCarouselProps) {
   const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
 
-    const scrollAmount = 320;
+    const scrollAmount = 380;
 
     scrollRef.current.scrollBy({
       left: direction === "left" ? -scrollAmount : scrollAmount,
@@ -28,37 +27,45 @@ export function BlogCarousel({ blogsPosts }: BlogCarouselProps) {
 
   return (
     <div className="relative w-full">
-      {/* Seta esquerda */}
+      {/* SETA ESQUERDA */}
       <button
         onClick={() => scroll("left")}
-        className="absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white p-2 shadow hover:bg-gray-100 hidden md:flex"
+        className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white p-3 shadow hover:bg-gray-100 hidden md:flex"
       >
         <ChevronLeft size={24} />
       </button>
 
-      {/* Lista de produtos */}
+      {/* CARDS */}
       <div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-auto md:overflow-x-hidden scroll-smooth ml-12"
+        className="
+          flex
+          gap-6
+          overflow-x-auto
+          scroll-smooth
+          snap-x
+          snap-mandatory
+          scrollbar-hide
+          px-4
+        "
       >
-        {blogsPosts.map((blog) => {
-          return (
+        {blogsPosts.map((blog) => (
+          <div key={blog.id} className="snap-start shrink-0 w-[85%] sm:w-90">
             <BlogCard
-              key={blog.id}
               createdAt={blog.created_at}
               title={blog.title}
               excerpt={blog.excerpt}
               imageUrl={`${backendUrl}/storage/${blog.featured_image}`}
               slug={blog.slug}
             />
-          );
-        })}
+          </div>
+        ))}
       </div>
 
-      {/* Seta direita */}
+      {/* SETA DIREITA */}
       <button
         onClick={() => scroll("right")}
-        className="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white p-2 shadow hover:bg-gray-100 hidden md:flex"
+        className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white p-3 shadow hover:bg-gray-100 hidden md:flex"
       >
         <ChevronRight size={24} />
       </button>

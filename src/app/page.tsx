@@ -29,7 +29,7 @@ export default async function Home() {
         <div className="grid grid-cols-4 gap-6 mt-6"></div>
       </section>
 
-      <section className="mt-16 border-t pt-8 border-b">
+      <section className="mt-16 border-b pt-8 border-none md:border-b">
         <h2 className="text-xl font-semibold">📰 Últimos Artigos</h2>
         {featureBlog.length === 0 ? (
           <p className="mt-4 text-gray-500">
@@ -41,6 +41,7 @@ export default async function Home() {
           </div>
         )}
       </section>
+      <div className="md:hidden border-b" />
     </div>
   );
 }
