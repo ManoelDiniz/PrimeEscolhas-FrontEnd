@@ -6,6 +6,7 @@ const platforms = [
   { name: "Mercado Livre", logo: "/logo/mercado_livre.png" },
   { name: "Temu", logo: "/logo/temu.png" },
   { name: "Aliexpress", logo: "/logo/aliexpress.png" },
+  { name: "Shopee", logo: "/logo/shopee.png" },
 ];
 
 const duplicated = [
