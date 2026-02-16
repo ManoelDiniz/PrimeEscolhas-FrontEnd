@@ -43,7 +43,7 @@ export const BlogCard = ({
 
       {/* CONTEÚDO */}
       <div className="p-6 flex flex-col h-full">
-        <h2 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2 ">
+        <h2 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
           {title}
         </h2>
 
