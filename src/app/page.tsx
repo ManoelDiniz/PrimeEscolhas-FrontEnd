@@ -41,7 +41,7 @@ export default async function Home() {
           </div>
         )}
       </section>
-      <div className="md:hidden border-b" />
+      <div className="border-b" />
     </div>
   );
 }
