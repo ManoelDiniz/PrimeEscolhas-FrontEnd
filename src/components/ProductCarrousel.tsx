@@ -25,7 +25,7 @@ export function ProductCarousel({ products }: ProductCarouselProps) {
   };
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full  ">
       {/* Seta esquerda */}
       <button
         onClick={() => scroll("left")}

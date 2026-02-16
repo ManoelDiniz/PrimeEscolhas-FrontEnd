@@ -28,7 +28,7 @@ export const BlogCard = ({
     <Link
       onClick={handleClick}
       href={slug ? `/blog/${slug}` : "#"}
-      className="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden cursor-pointer w-72 h-85.5"
+      className="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden cursor-pointer w-72 h-85.5 mb-2"
     >
       {/* IMAGEM */}
       <div className="relative w-full aspect-video">
