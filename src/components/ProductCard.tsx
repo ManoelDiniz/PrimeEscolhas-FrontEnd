@@ -8,7 +8,8 @@ export const ProductCard = (product: ProductDto) => {
   const currentPrice = Number(product.current_price);
   const oldPrice = Number(product.old_price);
   const hasDiscount = hasActiveDiscount(product);
-  const finalPrice = hasDiscount && currentPrice ? currentPrice : oldPrice;
+
+  const finalPrice = hasDiscount && oldPrice > 0 ? oldPrice : currentPrice;
   const backendUrl =
     process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:3001";
 

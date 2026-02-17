@@ -6,7 +6,9 @@ import { ProductDto } from "../types/ProductDto";
 export function hasActiveDiscount(product: ProductDto): boolean {
   const currentPrice = Number(product.current_price);
   const oldPrice = Number(product.old_price);
+
   return (
+    oldPrice > 0 &&
     currentPrice !== null &&
     currentPrice !== undefined &&
     currentPrice > 0 &&
