@@ -12,8 +12,6 @@ export function formatCurrency(
 
   const formatted = Number(value).toFixed(2).replace(".", ",");
 
-  console.log("Valor formatado:", formatted);
-
   return showSymbol ? `R$ ${formatted}` : formatted;
 }
 

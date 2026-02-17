@@ -9,7 +9,17 @@ export const ProductCard = (product: ProductDto) => {
   const oldPrice = Number(product.old_price);
   const hasDiscount = hasActiveDiscount(product);
 
-  const finalPrice = hasDiscount && oldPrice > 0 ? oldPrice : currentPrice;
+  const finalPrice = hasDiscount && oldPrice > 0 ? currentPrice : oldPrice;
+  console.log(
+    "ProductCard renderizado para:",
+    product.title,
+    "com desconto?",
+    hasDiscount,
+    "preço atual:",
+    formatCurrency(currentPrice),
+    "preço antigo:",
+    formatCurrency(finalPrice),
+  );
   const backendUrl =
     process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:3001";
 
@@ -57,7 +67,9 @@ export const ProductCard = (product: ProductDto) => {
         )}
 
         <span className="text-lg font-bold text-black">
-          {formatCurrency(finalPrice)}
+          {finalPrice > 0
+            ? formatCurrency(finalPrice)
+            : formatCurrency(currentPrice)}
         </span>
 
         <ButtonAddCarts
