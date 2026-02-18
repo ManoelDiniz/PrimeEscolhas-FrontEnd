@@ -10,16 +10,7 @@ export const ProductCard = (product: ProductDto) => {
   const hasDiscount = hasActiveDiscount(product);
 
   const finalPrice = hasDiscount && oldPrice > 0 ? currentPrice : oldPrice;
-  console.log(
-    "ProductCard renderizado para:",
-    product.title,
-    "com desconto?",
-    hasDiscount,
-    "preço atual:",
-    formatCurrency(currentPrice),
-    "preço antigo:",
-    formatCurrency(finalPrice),
-  );
+
   const backendUrl =
     process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:3001";
 
