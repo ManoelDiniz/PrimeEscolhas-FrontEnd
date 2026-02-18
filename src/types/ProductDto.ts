@@ -1,6 +1,6 @@
 import z from "zod";
-import { CategoryDto, CategorySchemas } from "./CategoryDto";
 import { AffiliateLinkDto } from "./AffiliateLinkDto";
+import { CategorySchemas } from "./CategoryDto";
 
 export const ProductDto = z.object({
   id: z.number(),
@@ -30,6 +30,8 @@ export const ProductDto = z.object({
   meta_title: z.string().nullable().optional(),
   meta_description: z.string().nullable().optional(),
   meta_keywords: z.string().nullable().optional(),
+  created_at: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 export type ProductDto = z.infer<typeof ProductDto>;
