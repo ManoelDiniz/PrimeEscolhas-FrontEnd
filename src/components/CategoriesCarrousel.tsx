@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { CategoryDto } from "../types/CategoryDto";
 import { useRef } from "react";
 import { AiFillProduct } from "react-icons/ai";
+import Link from "next/link";
 
 interface CategoriesCarrouselProps {
   categories: CategoryDto[];
@@ -44,12 +45,13 @@ export default function CategoriesCarrousel({
           className="flex overflow-x-auto scrollbar-hide space-x-4 px-6"
         >
           {categories.map((category, index) => (
-            <div
+            <Link
               key={index}
+              href={`/categoria/${category.slug}`}
               className="w-40 h-20 relative top-2 left-5 flex items-center cursor-pointer justify-center bg-transparent rounded-lg shadow-md text-sm font-medium text-gray-700 hover:bg-gray-200 transition duration-300 shrink-0 mb-5 mx-5 text-center"
             >
               {category.name}
-            </div>
+            </Link>
           ))}
         </div>
         <button
