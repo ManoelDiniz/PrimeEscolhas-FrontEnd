@@ -43,7 +43,7 @@ export async function getCategoryBySlug(
     const data: CategoryDto = await res.json();
     return data;
   } catch (error) {
-    console.error("Erro ao buscar categoria:", error);
+    console.error("Erro ao buscar categoria: ", error);
     return null;
   }
 }
