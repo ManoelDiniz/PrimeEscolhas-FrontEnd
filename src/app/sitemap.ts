@@ -3,6 +3,7 @@ import { ProductDto } from "../types/ProductDto";
 import { BlogDto } from "../types/Blogs";
 import { getProducts } from "../services/Product";
 import { getBlogs } from "../services/Blog";
+import { getCategories } from "../services/Category";
 
 export const revalidate = 60;
 
@@ -10,13 +11,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://afiliado.primeescolhas.com.br";
 
   try {
-    const [productsRes, blogsRes] = await Promise.all([
+    const [productsRes, blogsRes, categoriesRes] = await Promise.all([
       await getProducts(),
       await getBlogs(),
+      await getCategories(),
     ]);
 
     const products = productsRes;
     const blogs = blogsRes;
+    const categories = categoriesRes;
 
     const staticPages: MetadataRoute.Sitemap = [
       {
@@ -77,7 +80,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     }));
 
-    return [...staticPages, ...productPages, ...blogPages];
+    const categoryPages: MetadataRoute.Sitemap = categories.map((category) => ({
+      url: `${baseUrl}/categoria/${category.slug}`,
+      lastModified: new Date(
+        category.updated_at ?? category.created_at ?? new Date().toISOString(),
+      ),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    }));
+
+    return [...staticPages, ...productPages, ...blogPages, ...categoryPages];
   } catch (error) {
     console.error("Erro ao gerar sitemap:", error);
 

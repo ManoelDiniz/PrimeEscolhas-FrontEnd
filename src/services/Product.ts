@@ -1,5 +1,5 @@
 import { ProductResponseDTO } from "../types/MainResponse";
-import { ProductDto } from "./../types/ProductDto";
+import { ProductDto, ProductSchemas } from "./../types/ProductDto";
 
 const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
@@ -11,7 +11,7 @@ export const getProducts = async (): Promise<ProductDto[]> => {
     throw new Error("Failed to fetch products");
   }
   const data: ProductResponseDTO = await res.json();
-  return ProductDto.array().parse(data.data);
+  return ProductSchemas.array().parse(data.data);
 };
 
 export const getProductsIsFeatured = async (): Promise<ProductDto[]> => {
@@ -22,7 +22,7 @@ export const getProductsIsFeatured = async (): Promise<ProductDto[]> => {
     throw new Error("Failed to fetch featured products");
   }
   const data: ProductResponseDTO = await res.json();
-  return ProductDto.array().parse(data.data);
+  return ProductSchemas.array().parse(data.data);
 };
 
 export const getProductBySlug = async (slug: string): Promise<ProductDto> => {
@@ -34,5 +34,5 @@ export const getProductBySlug = async (slug: string): Promise<ProductDto> => {
     throw new Error("Failed to fetch product");
   }
   const data = await res.json();
-  return ProductDto.parse(data);
+  return ProductSchemas.parse(data);
 };
