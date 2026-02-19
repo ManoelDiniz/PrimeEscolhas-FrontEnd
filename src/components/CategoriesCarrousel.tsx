@@ -46,7 +46,7 @@ export default function CategoriesCarrousel({
           {categories.map((category, index) => (
             <div
               key={index}
-              className="w-40 h-20 relative top-2 left-5 flex items-center cursor-pointer justify-center bg-transparent rounded-lg shadow-md text-sm font-medium text-gray-700 hover:bg-gray-200 transition duration-300 shrink-0 mb-5 mx-5"
+              className="w-40 h-20 relative top-2 left-5 flex items-center cursor-pointer justify-center bg-transparent rounded-lg shadow-md text-sm font-medium text-gray-700 hover:bg-gray-200 transition duration-300 shrink-0 mb-5 mx-5 text-center"
             >
               {category.name}
             </div>
