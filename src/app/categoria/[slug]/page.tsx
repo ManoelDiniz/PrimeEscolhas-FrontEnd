@@ -3,7 +3,7 @@ import { getCategories, getCategoryBySlug } from "@/src/services/Category";
 
 export async function generateStaticParams() {
   const categories = await getCategories();
-  console.log("Categorias encontradas para geração de páginas:", categories);
+
   return categories.map((category) => ({
     slug: category.slug,
   }));
