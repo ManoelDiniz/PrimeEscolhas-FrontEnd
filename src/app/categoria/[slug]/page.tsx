@@ -3,6 +3,7 @@ import { getCategories, getCategoryBySlug } from "@/src/services/Category";
 
 export async function generateStaticParams() {
   const categories = await getCategories();
+  console.log("Categorias encontradas para geração de páginas:", categories);
   return categories.map((category) => ({
     slug: category.slug,
   }));
@@ -23,8 +24,10 @@ export async function generateMetadata({
   }
   return {
     title: category.meta_title || category.name,
-    description: category.meta_description,
-    keywords: category.meta_keywords,
+    description:
+      category.meta_description ||
+      `Produtos relacionados à categoria ${category.name}`,
+    keywords: category.meta_keywords || category.name,
   };
 }
 export default async function CategoryPage({
