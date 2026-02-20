@@ -26,8 +26,8 @@ export function Header() {
           <Link href="/" className="hover:text-primary transition">
             Home
           </Link>
-          <Link href="/ofertas" className="hover:text-primary transition">
-            Ofertas
+          <Link href="/produtos" className="hover:text-primary transition">
+            Produtos
           </Link>
           <Link href="/blog" className="hover:text-primary transition">
             Blog
