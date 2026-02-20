@@ -15,9 +15,12 @@ export const getProducts = async (): Promise<ProductDto[]> => {
 };
 
 export const getProductsIsFeatured = async (): Promise<ProductDto[]> => {
-  const res = await fetch(`${backendUrl}/v1/products?is_featured=1`, {
-    next: { revalidate: 60 },
-  });
+  const res = await fetch(
+    `${backendUrl}/v1/products?is_featured=1&page=1&per_page=100`,
+    {
+      next: { revalidate: 60 },
+    },
+  );
   if (!res.ok) {
     throw new Error("Failed to fetch featured products");
   }
