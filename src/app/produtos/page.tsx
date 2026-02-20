@@ -3,7 +3,7 @@ import { CategoryDto } from "@/src/types/CategoryDto";
 import OffersPage from "./OffersPage";
 
 export const metadata = {
-  title: "Ofertas e Promoções - Prime Escolhas",
+  title: "Produtos Em Ofertas e Promoções - Prime Escolhas",
   description:
     "Filtre e encontre as melhores ofertas por categoria, nome ou marketplace. Compare preços e economize nas suas compras online.",
   keywords: [
@@ -15,14 +15,14 @@ export const metadata = {
     "comparação de preços",
   ],
   openGraph: {
-    title: "Ofertas e Promoções - Prime Escolhas",
+    title: "Produtos Em Ofertas e Promoções - Prime Escolhas",
     description:
       "Filtre e encontre as melhores ofertas por categoria, nome ou marketplace.",
-    url: "https://afiliado.primeescolhas.com.br/ofertas",
+    url: "https://afiliado.primeescolhas.com.br/produtos",
     type: "website",
   },
   alternates: {
-    canonical: "https://afiliado.primeescolhas.com.br/ofertas",
+    canonical: "https://afiliado.primeescolhas.com.br/produtos",
   },
 };
 
