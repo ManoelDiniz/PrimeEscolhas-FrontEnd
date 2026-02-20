@@ -18,7 +18,7 @@ export const ProductCard = (product: ProductDto) => {
     <div className="relative flex h-90 w-50 shrink-0 flex-col rounded-xl bg-white  shadow-md p-4 cursor-pointer hover:shadow-lg transition-shadow duration-300 mb-5 ">
       {/* Badge desconto */}
       {hasDiscount && (
-        <span className="absolute left-3 top-3 rounded-full bg-lime-500 px-2 py-1 text-xs font-bold text-black">
+        <span className="absolute left-3 top-3 rounded-full bg-lime-500 px-2 py-1 text-xs font-bold text-black z-50">
           OFERTA
         </span>
       )}
