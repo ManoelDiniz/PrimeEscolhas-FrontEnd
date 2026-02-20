@@ -1,7 +1,24 @@
 export const metadata = {
-  title: "Sobre o Prime Escolhas",
+  title: "Sobre Nós - Prime Escolhas",
   description:
     "Conheça o Prime Escolhas, como analisamos produtos e como funcionam nossos links de afiliado. Transparência, confiança e comparação real.",
+  keywords: [
+    "sobre prime escolhas",
+    "análise de produtos",
+    "comparação",
+    "transparência",
+    "links de afiliado",
+  ],
+  openGraph: {
+    title: "Sobre Nós - Prime Escolhas",
+    description:
+      "Conheça o Prime Escolhas, como analisamos produtos e como funcionam nossos links de afiliado.",
+    url: "https://afiliado.primeescolhas.com.br/sobre",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://afiliado.primeescolhas.com.br/sobre",
+  },
 };
 
 export default function Sobre() {

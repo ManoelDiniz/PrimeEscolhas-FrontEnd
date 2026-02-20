@@ -4,9 +4,19 @@ import type { BlogDto } from "@/src/types/Blogs";
 
 export function generateMetadata() {
   return {
-    title: "Blog - Prime Escolhas",
+    title: "Blog e Artigos - Prime Escolhas",
     description:
       "Explore nossos artigos e análises detalhadas sobre os melhores produtos do mercado. Fique por dentro das últimas tendências e dicas para fazer escolhas inteligentes.",
+    openGraph: {
+      title: "Blog e Artigos - Prime Escolhas",
+      description:
+        "Explore nossos artigos e análises detalhadas sobre os melhores produtos do mercado.",
+      url: "https://afiliado.primeescolhas.com.br/blog",
+      type: "website",
+    },
+    alternates: {
+      canonical: "https://afiliado.primeescolhas.com.br/blog",
+    },
   };
 }
 export default async function Blog() {

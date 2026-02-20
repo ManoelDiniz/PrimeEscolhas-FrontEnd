@@ -81,11 +81,11 @@ export function Header() {
             Home
           </Link>
           <Link
-            href="/ofertas"
+            href="/produtos"
             onClick={() => setOpen(false)}
             className="text-gray-700 font-medium"
           >
-            Ofertas
+            Produtos
           </Link>
           <Link
             href="/blog"

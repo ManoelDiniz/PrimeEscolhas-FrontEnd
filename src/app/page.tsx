@@ -7,6 +7,23 @@ import { ProductCarousel } from "../components/ProductCarrousel";
 import { getBlogs } from "../services/Blog";
 import { getCategories } from "../services/Category";
 import { getProductsIsFeatured } from "../services/Product";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Prime Escolhas - Ofertas, Reviews e Comparação de Produtos",
+  description:
+    "Encontre as melhores ofertas do mercado, compare produtos e leia análises detalhadas. Tome decisões de compra inteligentes com Prime Escolhas.",
+  openGraph: {
+    title: "Prime Escolhas - Ofertas, Reviews e Comparação de Produtos",
+    description:
+      "Encontre as melhores ofertas do mercado, compare produtos e leia análises detalhadas.",
+    url: "https://afiliado.primeescolhas.com.br",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://afiliado.primeescolhas.com.br",
+  },
+};
 
 export default async function Home() {
   const featuredProducts = await getProductsIsFeatured();

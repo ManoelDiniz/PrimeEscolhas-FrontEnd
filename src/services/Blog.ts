@@ -1,52 +1,35 @@
 import { BlogDto } from "../types/Blogs";
 
-const urlBackEnd =
+const BACKEND_URL =
   process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:3001";
+const REVALIDATE_TIME = 60; // seconds
 
-export const getBlogs = async (): Promise<BlogDto[]> => {
+const fetchBlogData = async <T>(endpoint: string): Promise<T> => {
   try {
-    const response = await fetch(`${urlBackEnd}/v1/blog-posts`, {
-      next: { revalidate: 60 },
+    const response = await fetch(`${BACKEND_URL}${endpoint}`, {
+      next: { revalidate: REVALIDATE_TIME },
     });
+
     if (!response.ok) {
-      throw new Error("Failed to fetch blogs");
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const data = await response.json();
-    return data.data;
+
+    return await response.json();
   } catch (error) {
-    console.error("Error fetching blogs:", error);
+    console.error(`Error fetching blog data from ${endpoint}:`, error);
     throw error;
   }
+};
+
+export const getBlogs = async (): Promise<BlogDto[]> => {
+  const data = await fetchBlogData<{ data: BlogDto[] }>("/v1/blog-posts");
+  return data.data;
 };
 
 export const getBlogById = async (id: string): Promise<BlogDto> => {
-  try {
-    const response = await fetch(`${urlBackEnd}/v1/blog-posts/${id}`, {
-      next: { revalidate: 60 },
-    });
-    if (!response.ok) {
-      throw new Error("Failed to fetch blog");
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching blog:", error);
-    throw error;
-  }
+  return await fetchBlogData<BlogDto>(`/v1/blog-posts/${id}`);
 };
 
 export const getBlogBySlug = async (slug: string): Promise<BlogDto> => {
-  try {
-    const response = await fetch(`${urlBackEnd}/v1/blog-posts/${slug}`, {
-      next: { revalidate: 60 },
-    });
-    if (!response.ok) {
-      throw new Error("Failed to fetch blog");
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching blog:", error);
-    throw error;
-  }
+  return await fetchBlogData<BlogDto>(`/v1/blog-posts/${slug}`);
 };
