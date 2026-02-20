@@ -24,18 +24,19 @@ export const ProductCard = (product: ProductDto) => {
       )}
 
       {/* Imagem */}
-      <div className="flex h-35 items-center justify-center">
+      {/* Imagem */}
+      <div className="relative flex h-36 w-full items-center justify-center overflow-hidden">
         {product.image ? (
           <Image
             src={`${backendUrl}/storage/${product.image}`}
             alt={product.title}
-            width={120}
-            height={120}
-            className="object-contain"
+            fill
+            sizes="140px"
+            className="object-contain p-2"
             unoptimized
           />
         ) : (
-          <div className="h-30 w-30 bg-gray-100 rounded-md" />
+          <div className="h-full w-full bg-gray-100 rounded-md" />
         )}
       </div>
 
