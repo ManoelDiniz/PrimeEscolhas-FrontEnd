@@ -28,7 +28,7 @@ export async function generateMetadata({
       title: product.meta_title || product.title,
       description: product.meta_description || product.description,
       url: productUrl,
-      type: "product",
+      type: "website",
       images: [
         {
           url: product.image || "/logo/logo-og.png",
